@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -11,27 +12,77 @@
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ... (所有之前的样式) ... */
+        /* ... (其他样式) ... */
 
         nav {
             position: relative;
             overflow: hidden;
         }
 
-        .mobile-menu {
-            display: none;
-            /* ...其他移动菜单图标样式... */
+        .desktop-nav { /*  用于桌面菜单  */
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 10px;
+            background-color: transparent; /* 或其他颜色 */
         }
 
-        .desktop-nav {
-            /* ...桌面菜单样式... */
+        .desktop-nav li a { /* 桌面导航链接样式 */
+            color: white; /* 或其他颜色 */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 1.8em;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="checkbox"] {
+            display: none;
         }
 
         .mobile-nav {
+            list-style: none;
             display: none;
-            /* ...其他移动菜单样式... */
-            transition: transform 0.3s ease-in-out;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            background-color: #333;
+            position: absolute; /*  绝对定位 */
+            top: 100%; /*  位于桌面菜单下方 */
+            left: 0;
+            width: 100%;
+            transform: translateY(-100%);  /*  初始状态隐藏在屏幕上方  */
+            transition: transform 0.3s ease-in-out;  /*  平滑过渡  */
         }
+
+        .mobile-nav li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            display: block; /*  占据整行 */
+            text-align: center; /*  文本居中 */
+        }
+
+        .mobile-nav li a:hover {
+            color: #ddd;
+            transform: translateX(5px);
+        }
+
 
         @media (max-width: 768px) {
             .desktop-nav {
@@ -41,16 +92,14 @@
             .mobile-menu {
                 display: block;
             }
+
+            #menu-toggle:checked~.mobile-nav {
+                transform: translateY(0%);  /*  显示移动菜单 */
+            }
         }
 
-        #menu-toggle:checked~.desktop-nav {
-            transform: translateX(-100%);
-        }
 
-        #menu-toggle:checked~.mobile-nav {
-            display: block;
-            transform: translateY(0%);
-        }
+        /* ... (其他样式) ... */
     </style>
 </head>
 
@@ -58,6 +107,7 @@
     <header id="top">
         <h1>腾龙娱乐</h1>
         <nav>
+
             <input type="checkbox" id="menu-toggle" class="mobile-menu">
             <label for="menu-toggle" class="mobile-menu-icon"><i class="fas fa-bars"></i></label>
             <ul class="desktop-nav">
@@ -66,43 +116,16 @@
                 <li><a href="http://ad.itl0099.com" rel="noopener noreferrer" target="_blank">官方代理入口</a></li>
                 <li><a href="http://www.itl1002.com" rel="noopener noreferrer" target="_blank">登陆入口B</a></li>
             </ul>
-            <ul class="mobile-nav">
-            </ul>
+
+            <ul class="mobile-nav"></ul>
         </nav>
     </header>
 
-    <div class="hero">
-        <video autoplay loop muted class="hero-video">
-            <source src="videos/img_4834.mp4" type="video/mp4">
-            <!--  如果可能，提供 WebM 格式以获得更好的兼容性  -->
-            <source src="videos/img_4834.webm" type="video/webm"> 
-            Your browser does not support the video tag.
-        </video>
-        <div class="hero-content">
-            <h2>开启您的娱乐之旅</h2>
-            <p>在这里体验前所未有的刺激和精彩！</p>
-            <a href="#" class="feedback-button">
-                提交反馈 <i class="fas fa-paper-plane"></i>
-            </a>
-        </div>
-    </div>
-
-    <section class="section" id="about">
-        <h2>关于腾龙</h2>
-        <p>我们致力于提供最好的在线娱乐体验，包括各种精彩的体育博彩、真人娱乐和电子游戏。我们拥有安全可靠的平台，并提供
-            24/7 的客户服务。腾龙娱乐拥有多年的行业经验，致力于为玩家打造一个公平、公正、安全的游戏环境。我们提供多种便捷的支付方式，并定期推出各种优惠活动。立即加入，开启您的娱乐之旅！
-        </p>
-    </section>
-
-    <!-- ... 其他 sections ... -->
-
-    <footer>
-        <!-- ... 页脚内容 ... -->
-    </footer>
-
-
+    <!-- ... (其他内容) ... -->
     <script>
-        // ... (其他 JavaScript 代码，例如返回顶部按钮逻辑)  ...
+
+        // ... (其他 JavaScript)
+
 
         const mobileNav = document.querySelector('.mobile-nav');
         const desktopNavItems = document.querySelectorAll('.desktop-nav > li');
@@ -111,6 +134,7 @@
             const clone = item.cloneNode(true);
             mobileNav.appendChild(clone);
         });
+
 
         // 点击空白处关闭移动菜单
         document.addEventListener('click', (event) => {
@@ -121,7 +145,6 @@
             }
         });
     </script>
-
 </body>
 
 </html>
