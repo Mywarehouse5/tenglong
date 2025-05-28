@@ -41,19 +41,21 @@
         header h1 {
             font-size: 2.2em;
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 0; /* 移除标题底部边距 */
         }
 
-        /* 导航样式 */
+        /* 导航样式调整 */
         nav {
-            position: relative;
+            display: flex; /* 添加弹性布局 */
+            justify-content: space-between; /* 左右分布 */
+            align-items: center; /* 垂直居中 */
+            margin-top: 15px; /* 调整与标题间距 */
         }
 
         .mobile-menu {
-            position: absolute;
-            right: 20px;
-            top: 20px;
-            font-size: 1.8em;
+            position: static; /* 移除绝对定位 */
+            margin-left: auto; /* 靠右显示 */
+            font-size: 1.6em; /* 适当缩小图标尺寸 */
             color: white;
             cursor: pointer;
             z-index: 999;
@@ -95,7 +97,7 @@
                 display: flex !important;
                 justify-content: center;
                 gap: 30px;
-                margin-top: 10px;
+                margin-top: 0; /* 大屏导航项垂直居中 */
                 background-color: transparent;
                 position: static;
             }
