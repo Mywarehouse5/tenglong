@@ -1,70 +1,81 @@
-```html
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>腾龙娱乐 - 官方在线娱乐平台</title>
-    <meta name="description"
-        content="腾龙娱乐官方平台，提供各种精彩的在线娱乐游戏，例如体育博彩、真人娱乐、电子游戏等。安全可靠，立即加入！">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;700&display=swap">
+    <meta name="description" content="腾龙娱乐官方平台，提供各种精彩的在线娱乐游戏，例如体育博彩、真人娱乐、电子游戏等。安全可靠，立即加入！">
+    
+    <!-- 字体样式：仅保留必要字体 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* ... (其他样式) ... */
+        :root {
+            --primary-color: #ff3333;
+            --dark-bg: #333;
+            --spacing: 15px;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* 导航样式优化 */
         nav {
             position: relative;
-            overflow: hidden;
-        }
-
-        .desktop-nav { /*  用于桌面菜单  */
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 10px;
-            background-color: transparent; /* 或其他颜色 */
-        }
-
-        .desktop-nav li a { /* 桌面导航链接样式 */
-            color: white; /* 或其他颜色 */
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            padding: 8px 16px;
         }
 
         .mobile-menu {
-            display: none;
             position: absolute;
             right: 20px;
             top: 20px;
             font-size: 1.8em;
             color: white;
             cursor: pointer;
-        }
-
-        input[type="checkbox"] {
-            display: none;
+            z-index: 999; /* 确保图标在顶部 */
         }
 
         .mobile-nav {
             list-style: none;
-            display: none;
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            margin-top: 10px;
-            background-color: #333;
-            position: absolute; /*  绝对定位 */
-            top: 100%; /*  位于桌面菜单下方 */
+            padding: 15px;
+            background-color: var(--dark-bg);
+            position: absolute;
+            top: 100%;
             left: 0;
-            width: 100%;
-            transform: translateY(-100%);  /*  初始状态隐藏在屏幕上方  */
-            transition: transform 0.3s ease-in-out;  /*  平滑过渡  */
+            right: 0;
+            z-index: 99;
+            display: none; /* 默认隐藏 */
+        }
+
+        .mobile-nav.active { /* 添加激活状态类 */
+            display: flex;
         }
 
         .mobile-nav li a {
@@ -73,33 +84,51 @@
             font-weight: 700;
             font-size: 1.1em;
             transition: all 0.3s ease;
-            padding: 8px 16px;
-            display: block; /*  占据整行 */
-            text-align: center; /*  文本居中 */
         }
 
-        .mobile-nav li a:hover {
-            color: #ddd;
-            transform: translateX(5px);
-        }
-
-
-        @media (max-width: 768px) {
-            .desktop-nav {
+        /* 响应式导航 */
+        @media (min-width: 769px) {
+            .mobile-nav {
+                display: flex !important;
+                justify-content: center;
+                gap: 30px;
+                margin-top: 10px;
+                background-color: transparent;
+                position: static; /* 大屏改为静态定位 */
+                width: auto;
+            }
+            .mobile-menu {
                 display: none;
             }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            #menu-toggle:checked~.mobile-nav {
-                transform: translateY(0%);  /*  显示移动菜单 */
-            }
         }
 
+        /* 英雄区域样式 */
+        .hero {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
 
-        /* ... (其他样式) ... */
+        /* 按钮样式 */
+        .feedback-button {
+            /* 保持原有样式 */
+        }
+
+        /* 内容板块样式 */
+        .section {
+            /* 保持原有样式 */
+        }
+
+        /* 页脚样式 */
+        footer {
+            /* 保持原有样式 */
+        }
+
+        /* 焦点样式 */
+        a:focus, 
+        button:focus {
+            /* 保持原有样式 */
+        }
     </style>
 </head>
 
@@ -107,44 +136,38 @@
     <header id="top">
         <h1>腾龙娱乐</h1>
         <nav>
-
-            <input type="checkbox" id="menu-toggle" class="mobile-menu">
-            <label for="menu-toggle" class="mobile-menu-icon"><i class="fas fa-bars"></i></label>
-            <ul class="desktop-nav">
+            <input type="checkbox" id="menu-toggle" style="display: none;"> <!-- 新增隐藏 checkbox -->
+            <label for="menu-toggle" class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul class="mobile-nav">
                 <li><a href="#about">关于腾龙</a></li>
                 <li><a href="http://www.itl1001.com" rel="noopener noreferrer" target="_blank">登陆入口A</a></li>
                 <li><a href="http://ad.itl0099.com" rel="noopener noreferrer" target="_blank">官方代理入口</a></li>
                 <li><a href="http://www.itl1002.com" rel="noopener noreferrer" target="_blank">登陆入口B</a></li>
             </ul>
-
-            <ul class="mobile-nav"></ul>
         </nav>
     </header>
 
-    <!-- ... (其他内容) ... -->
+    <!-- 保持其他HTML结构不变 -->
+
     <script>
-
-        // ... (其他 JavaScript)
-
-
+        // 导航菜单交互优化
+        const menuToggle = document.querySelector('.mobile-menu');
         const mobileNav = document.querySelector('.mobile-nav');
-        const desktopNavItems = document.querySelectorAll('.desktop-nav > li');
 
-        desktopNavItems.forEach(item => {
-            const clone = item.cloneNode(true);
-            mobileNav.appendChild(clone);
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('active'); // 通过类名控制显示状态
         });
 
-
-        // 点击空白处关闭移动菜单
-        document.addEventListener('click', (event) => {
-            const target = event.target;
-            const mobileMenu = document.getElementById('menu-toggle');
-            if (mobileMenu.checked && !target.closest('nav')) {
-                mobileMenu.checked = false;
+        // 键盘支持：按 Enter 键触发
+        menuToggle.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                mobileNav.classList.toggle('active');
             }
         });
+
+        // 返回顶部按钮逻辑保持不变
     </script>
 </body>
-
 </html>
