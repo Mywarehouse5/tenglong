@@ -7,7 +7,7 @@
     <meta name="google-site-verification" content="iKFnIxPvzF7n7e_NS-Yu9X-NfOSt6KLBfh4fRtkj0R4" />
         <script src="https://analytics.ahrefs.com/analytics.js" data-key="ho+YozUH/UlPhc9krsESdw" async></script>
     <title>腾龙公司「线上首选」</title>
-    <meta name="description" content="腾龙娱乐官方平台，提供各种精彩的在线娱乐游戏，例如体育博彩、真人娱乐、电子游戏等。安全可靠，立即加入！">
+    <meta name="description" content="腾龙娱乐官方平台 ，提供各种精彩的在线娱乐游戏，例如体育博彩、真人娱乐、电子游戏等。安全可靠，立即加入！">
     
     <!-- 字体样式：仅保留必要字体 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap">
@@ -35,7 +35,7 @@
         }
 
         header {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-bg );
             color: white;
             padding: 20px;
             position: relative;
@@ -109,27 +109,21 @@
         /* 英雄区域 */
         .hero {
             position: relative;
-            height: 250px;
-            overflow: hidden;
+            height: 350px; /* 您可以根据图片调整高度 */
             margin-bottom: 50px;
-        }
-
-        .hero video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-            loading: lazy;
+            background-image: url('banne.jpg'); /* <-- 在这里替换您的图片路径 */
+            background-size: cover; /* 确保图片覆盖整个区域 */
+            background-position: center; /* 图片居中显示 */
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             text-align: center;
             color: white;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.7); /* 半透明背景以突出文字 */
             padding: 30px 40px;
             border-radius: 10px;
             width: 90%;
@@ -226,7 +220,7 @@
         /* 返回顶部按钮 */
         .back-to-top {
             position: fixed;
-            bottom: 600px;
+            bottom: 20px; /* 调整位置避免遮挡 */
             right: 20px;
             background-color: var(--dark-bg);
             color: white;
@@ -263,6 +257,7 @@
         </nav>
     </header>
 
+    <!-- Hero Section (Banner ) -->
     <div class="hero">
         <div class="hero-content">
             <h2>开启您的娱乐之旅</h2>
@@ -310,7 +305,7 @@
 
     <script>
         // 导航菜单交互
-        const menuToggle = document.querySelector('.mobile-menu');
+        const menuToggle = document.querySelector('.mobile-menu' );
         const mobileNav = document.querySelector('.mobile-nav');
 
         menuToggle.addEventListener('click', () => {
